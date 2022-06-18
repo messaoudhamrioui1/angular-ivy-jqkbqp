@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Node.js Socket.io Chat Application</title>
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="jumbotron">NodeJS - Socket.io Chat Application</h1>
+      <div class="row" style="margin-top: 70px">
+        <div class="col-md-4"></div>
+        <div class="col-md-6">
+          <div *ngFor="let message of messageList" class="list-group">
+            <div class="list-group-item active">
+              <span class="name"> {{ message[0] }}</span>
+
+              <span>{{ message[1] }}</span>
+            </div>
+
+            <div class="list-group-item active">
+              <span>{{ message[2] }}</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <textarea
+              [(ngModel)]="newMessage"
+              (keyup)="$event.keyCode == 13 && sendMessage()"
+              rows="5"
+              id="txt"
+              cols="5"
+              class="form-control"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <button (click)="sendMessage()" class="btn btn-success">
+              Send Message
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
